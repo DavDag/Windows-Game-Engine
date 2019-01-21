@@ -1,0 +1,36 @@
+Demo Example 
+#include <GEngine.hpp>
+#include <iostream>
+#include <math.h>
+
+class Engine: public GEngine
+{
+	public:
+		bool onStart()
+		{
+			playerX = 400.0f; playerY = 300.0f;
+			speed = 720.0f;
+			sizeX = 80.0f; sizeY = 60.0f;
+			dirx = (rand() % 2) ? 1 : -1; diry = (rand() % 2) ? 1 : -1;
+			return true;
+		}
+		bool onUpdate(float dt)
+		{
+			playerX += dirx * speed * dt; playerY += diry * speed * dt;
+			Color color = Color(playerX / 800.0f * 255.0f, playerY / 600.0f * 255.0f, 0);
+			drawRect(playerX, playerY, sizeX, sizeY, color);
+			if(playerX < sizeX / 2 || playerX > 700 - sizeX / 2) dirx = -dirx;
+			if(playerY < sizeY / 2 || playerY > 500 - sizeY / 2) diry = -diry;
+			return true;
+		}
+	private:
+		float playerX, playerY, speed, sizeX, sizeY, dirx, diry;
+};
+
+int main()
+{
+	srand(time(NULL));
+	Engine demo;
+	if(demo.init(700, 500)) demo.run();
+	return 0;
+}
