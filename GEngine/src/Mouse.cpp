@@ -4,19 +4,19 @@
 Mouse::Mouse() { }
 
 // Get Mouse Position
-std::pair<long long, long long> Mouse::getMousePos()
+Vector2d Mouse::getMousePos()
 {
 	return m_mouseCoords;
 }
 
 // Set Mouse Position
-void Mouse::setMousePos(std::pair<long long, long long> pos)
+void Mouse::setMousePos(Vector2d pos)
 {
 	m_mouseCoords = pos;
 }
 
 // Get Button State
-KeyState Mouse::getKeyState(BYTE key)
+KeyState Mouse::GetKeyState(BYTE key)
 {
 	return KeyState { m_bPressed[key], m_bReleased[key], m_bHeld[key], m_bToggled[key] };
 }
@@ -24,5 +24,5 @@ KeyState Mouse::getKeyState(BYTE key)
 // Destructor
 Mouse::~Mouse() { }
 
-std::pair<long long, long long> Mouse::m_mouseCoords = {0, 0};
+Vector2d Mouse::m_mouseCoords = Vector2d(0, 0);
 

@@ -224,7 +224,7 @@ void GEngine::runGame()
 			ScreenToClient(m_hwnd, &p);
 				
 			// Insert new mouse position
-			Mouse::setMousePos({p.x, p.y});
+			Mouse::setMousePos(Vector2d(p.x, p.y));
 			
 	        // Lock for mutual exclusion
 	        m_buffermutex.lock();
@@ -339,6 +339,13 @@ void GEngine::drawEllipse(int x, int y, float width, float height, Color color /
 	
 	// Release Brush
 	DeleteObject(m_hBrush);
+}
+
+// Surface
+void GEngine::drawSurf(Vector2d srcPos, Surface& s, Vector2d destPos)
+{
+	// Draw the surface
+	BitBlt(m_hdcB, destPos.x, destPos.y, s.getSize().x, s.getSize().y, s.m_hdc, srcPos.x, srcPos.y, SRCCOPY);
 }
 
 // Set Fps

@@ -1,5 +1,7 @@
 #include "Keys.hpp"
 
+#include <algorithm>
+
 // Constructor
 Keys::Keys()
 {
@@ -17,7 +19,7 @@ void Keys::update()
 	for(BYTE i = 0; i < KEYS_BUFFER; ++i)
 	{
 		// To debug
-		m_buffer[i] &= 0xFF;
+		m_buffer[i] &= 0x00FF;
 		
 		// Check first bit for pressed 	0x8000 = 1000 0000 0000 0000
 		if(m_buffer[i] & 0x80)

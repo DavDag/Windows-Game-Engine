@@ -3,6 +3,7 @@
 
 #include "Utils.hpp"
 #include "Keys.hpp"
+#include "Vector2d.hpp"
 
 /**
   *  This class manage Mouse's inputs inheriting from Keys.
@@ -25,13 +26,13 @@ class Mouse: public Keys
 		static const BYTE K_XBUTTON2			= 0x06;
 		
 		// Get Mouse Position
-		static std::pair<long long, long long> getMousePos();
+		static Vector2d getMousePos();
 		
 		// Get Mouse Position
-		static void setMousePos(std::pair<long long, long long> pos);
+		static void setMousePos(Vector2d v);
 		
 		// Get Key State
-		static KeyState getKeyState(BYTE key);
+		static KeyState GetKeyState(BYTE key);
 		
 	protected:
 		// Constructor
@@ -42,7 +43,7 @@ class Mouse: public Keys
 		
 	private:
 		// Mouse position
-		static std::pair<long long, long long> m_mouseCoords;
+		static Vector2d m_mouseCoords;
 };
 
 #endif //MOUSE_HPP

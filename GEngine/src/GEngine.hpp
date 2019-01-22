@@ -16,6 +16,8 @@
 #include "Colors.hpp"
 #include "KeyBoard.hpp"
 #include "Mouse.hpp"
+#include "Vector2d.hpp"
+#include "Surface.hpp"
 
 /**
   *  First of all add
@@ -98,6 +100,9 @@ class GEngine: protected Keys
 		// Ellipse
 		void drawEllipse(int x, int y, float width, float height, Color color = Color::White);
 		
+		// Surface
+		void drawSurf(Vector2d srcPos, Surface& s, Vector2d destPos);
+		
 		// Set Fps
 		void setFps(double new_fps);
 		
@@ -158,3 +163,4 @@ class GEngine: protected Keys
 };
 
 #endif //GENGINE_HPP
+
