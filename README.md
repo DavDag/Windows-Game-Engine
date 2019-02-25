@@ -77,6 +77,3 @@ int main()
   return 0;
 }
 ```
-
-## Version
-0.1 Let's start !
